@@ -1,48 +1,48 @@
 <?php
 
-// Retenir son utilisation  => Database::getPDO()
+// Retenir son utilisation : Database::getPDO()
 // Design Pattern : Singleton
-/**
- * Classe qui va nous permettre de nous connecter à notre base de données = oshop
- */
+
 namespace App\Utils;
 
 use PDO;
 
 class Database
 {
-    /** @var PDO */
-    private $dbh;
-    private static $_instance;
+    private $pdo;
+    private static $_instance = null;
+    private $host = 'localhost';
+    private $db = 'ecom';
+    private $user = 'mvnu';
+    private $password = 'Af32lr77*&';
+    private $charset = 'utf8mb4';
+
+    // Constructeur privé pour empêcher une instanciation directe
     private function __construct()
     {
-        // Récupération des données du fichier de config
-        // la fonction parse_ini_file parse le fichier et retourne un array associatif
-        $configData = parse_ini_file(__DIR__ . '/../config.ini');
-
+        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ];
         try {
-            $this->dbh = new PDO(
-                "mysql:host={$configData['DB_HOST']};dbname={$configData['DB_NAME']};charset=utf8",
-                $configData['DB_USERNAME'],
-                $configData['DB_PASSWORD'],
-                array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING) // Affiche les erreurs SQL à l'écran
-            );
-        } catch (\Exception $exception) {
+            $this->pdo = new PDO($dsn, $this->user, $this->password, $options);
+        } catch (\PDOException $e) {
             echo 'Erreur de connexion...<br>';
-            echo $exception->getMessage() . '<br>';
+            echo $e->getMessage() . '<br>';
             echo '<pre>';
-            echo $exception->getTraceAsString();
+            echo $e->getTraceAsString();
             echo '</pre>';
-            exit;
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
-    // the unique method you need to use
+
+    // Méthode pour obtenir l'instance unique de la classe
     public static function getPDO()
     {
-        // If no instance => create one
-        if (empty(self::$_instance)) {
-            self::$_instance = new Database();
+        if (self::$_instance === null) {
+            self::$_instance = new self();
         }
-        return self::$_instance->dbh;
+        return self::$_instance->pdo;
     }
 }
