@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="<?=$absoluteURL?>/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?=$absoluteURL?>/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?=$absoluteURL?>/assets/css/styles.css">
-  <title>oShop</title>
+  <title>oball</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-lg navbar-sticky navbar-airy navbar-light">
       <div class="container-fluid">
         <!-- Navbar Header  -->
-        <a href="index.html" class="navbar-brand">oShop</a>
+        <a href="index.html" class="navbar-brand">oball</a>
         <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
           aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
         <!-- Navbar Collapse -->

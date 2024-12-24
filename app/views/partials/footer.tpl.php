@@ -32,7 +32,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 mb-5 mb-lg-0">
-            <div class="font-weight-bold text-uppercase text-lg text-dark mb-3">oShop</div>
+            <div class="font-weight-bold text-uppercase text-lg text-dark mb-3">oball</div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
             <ul class="list-inline">
               <li class="list-inline-item">
