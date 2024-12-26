@@ -1,4 +1,4 @@
-<h1>Product numero <?=$viewData['productId']?></h1>
+
 <section class="hero">
     <div class="container">
       <!-- Breadcrumbs -->

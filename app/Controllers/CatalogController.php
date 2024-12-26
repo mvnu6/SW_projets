@@ -78,7 +78,7 @@ class CatalogController extends CoreController
         $productModel = new Product();
 
         $products = $productModel->findByBrand($id_brand);
-        dump($products);
+       
 
         $this->show('brand', [
             'brandId' => $params['id'],
