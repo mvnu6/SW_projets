@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use PDO;
 
 // Modele de base : c'est la classe mère dont vont hériter TOUS les models
 // Cette classe n'est pas destinée à être instancié, mais seulement à être héritée
@@ -10,10 +11,18 @@ class CoreModel
     // On factorise dans la classe "parent" de tous les Models => donc ici meme CoreModel
     // Les propriétés doivent être en protected car on veut pouvoir les utiliser dans les classe enfant (avant ça, elles etaient en private)
 
-    protected $id;
-    protected $created_at;
-    protected $updated_at;
-
+    protected ?int $id;
+    protected ?string $created_at;
+    protected ?string $updated_at;
+    protected  static $pdo;
+  
+    protected static function getPDO()
+    {
+        if (is_null(self::$pdo)) {
+            self::$pdo = Database::getPDO();
+        }
+        return self::$pdo;
+    }
     /**
      * Get the value of id
      */ 
@@ -66,5 +75,13 @@ class CoreModel
     public function setCreated_at($created_at)
     {
         $this->created_at = $created_at;
+    }
+    public static function find(int $id)
+    {
+        $pdo = self::getPDO();
+        $sql = 'SELECT * FROM ' . strtolower(get_called_class()) . ' WHERE id = :id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetchObject(get_called_class());
     }
 }

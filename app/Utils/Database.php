@@ -13,8 +13,8 @@ class Database
     private static $_instance = null;
     private $host = 'localhost';
     private $db = 'ecom';
-    private $user = 'mvnu';
-    private $password = 'Af32lr77*&';
+    private $user = 'root';
+    private $password = 'toor';
     private $charset = 'utf8mb4';
 
     // Constructeur privé pour empêcher une instanciation directe

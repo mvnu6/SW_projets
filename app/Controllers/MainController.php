@@ -12,7 +12,7 @@ class MainController extends CoreController
 
     public function test()
     {
-        $brandModel = new Brand(); // peut modifier Brand avec les autres nom de model pour tester
+        $brandModel = new Brand(); // peut modifier Brand avec les autres noms de modèle pour tester
         $list = $brandModel->findAll();
         $elem = $brandModel->find(7);
         dump($list);
@@ -23,13 +23,18 @@ class MainController extends CoreController
      */
     public function home()
     {
-        // Ci dessous je créer une instance du model Category
+        // Récupérer les catégories
         $categoryModel = new Category();
-        // Ensuite j'execute la fonction findAllForHomePage() du model Category
         $categories = $categoryModel->findAllForHomePage();
-        // dump($categories);
+
+        // Récupérer les types
+        $typeModel = new Type();
+        $types = $typeModel->findAll();
+
+        // Passer les données à la vue
         $this->show('home', [
-            'categories' => $categories
+            'categories' => $categories,
+            'types' => $types, // Passage des types à la vue
         ]);
     }
 
@@ -41,4 +46,5 @@ class MainController extends CoreController
         // Affiche la vue dans le dossier views
         $this->show('mentions');
     }
+    
 }

@@ -18,3 +18,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 # Réécrire l'URL pour renseigner le script PHP, en remplaçant la
 # fin par index.php?_url=/morceau-d-url-tape-par-l-internaute
 RewriteRule ^(.*)$ index.php?_url=/$1 [QSA,L]
+
+SetEnv BASE_URI /SW_projets/public
