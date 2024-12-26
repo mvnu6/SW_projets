@@ -14,6 +14,8 @@ class CatalogController extends CoreController
     /**
      * Affiche la page Catégories
      */
+
+     
     public function category($params)
     {
         // je vais récupérer tous les produit qui ont pour id_category, l'id de la category courante
@@ -107,4 +109,11 @@ class CatalogController extends CoreController
             'product' => $product
         ]);
     }
+    private function getTypes()
+{
+    $typeModel = new Type();
+    return $typeModel->findAll(); // findAll() récupère tous les types
+}
+
+    
 }
