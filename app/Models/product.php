@@ -134,6 +134,30 @@ class Product extends CoreModel
 
         return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
     }
+
+    public static function findByType(int $typeId): array{
+        $pdo = Database::getPDO();
+        $sql = 'SELECT * FROM product WHERE type_id = :typeId';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':typeId', $typeId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+
+    }
+
+    public static function findByBrand(int $brandId): array{
+        $pdo = Database::getPDO();
+        $sql = 'SELECT * FROM product WHERE brand_id = :brandId';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':brandId', $brandId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+
+    }
+
+    
     public static function findAll(): array
     {
         $pdo = Database::getPDO();
