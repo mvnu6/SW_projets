@@ -87,7 +87,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-3 text-center text-md-left">
-            <p class="mb-md-0">Tous droits réservés<br>© 2020 oShop</p>
+            <p class="mb-md-0">Tous droits réservés<br>© 2020 oball</p>
           </div>
           <div class="col-md-6 text-center">
             <p class="mb-md-0"><a class="text-white" href="#">Mentions légales</a><br><a class="text-white" href="#">Conditions générales de vente</a></p>

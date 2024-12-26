@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Type;
+use App\Utils\Database;
 
 class CoreController 
 {

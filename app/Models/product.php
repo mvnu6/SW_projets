@@ -2,46 +2,21 @@
 
 namespace App\Models;
 
-use PDO;
 use App\Utils\Database;
+use PDO;
 
-class Product
+class Product extends CoreModel
 {
-    private int $id;
-    private string $name;
-    private ?string $picture;
-    private string $color;
-    private float $price;
-    private int $rate;
-    private int $status;
-    private string $created_at;
-    private ?string $updated_at;
-    private int $brand_id;
-    private ?int $category_id;
-    private int $type_id;
+    private ?int $type_id;    // Identifiant du type
+    private string $name;     // Nom du produit
+    private ?string $picture; // URL de l'image
+    private string $color;    // Couleur du produit
+    private float $price;     // Prix du produit
+    private int $rate;        // Note (1 à 5)
+    private int $status;      // Statut du produit
+    private int $brand_id;    // Identifiant de la marque
+    private ?int $category_id; // Identifiant de la catégorie
 
-    // Méthode pour récupérer un produit par son ID
-    public static function find(int $id): ?Product
-    {
-        $pdo = Database::getPDO();
-        $sql = 'SELECT * FROM product WHERE id = :id';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetchObject(self::class);
-
-        return $result ?: null;
-    }
-
-    // Méthode pour récupérer tous les produits
-    public static function findAll(): array
-    {
-        $pdo = Database::getPDO();
-        $sql = 'SELECT * FROM product';
-        $stmt = $pdo->query($sql);
-
-        return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
-    }
 
     // Getters et setters
     public function getId(): int
@@ -139,12 +114,12 @@ class Product
         $this->category_id = $category_id;
     }
 
-    public function getTypeId(): int
+    public function getType_Id(): int
     {
         return $this->type_id;
     }
 
-    public function setTypeId(int $type_id): void
+    public function setType_Id(int $type_id): void
     {
         $this->type_id = $type_id;
     }
@@ -157,6 +132,13 @@ class Product
         $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
         $stmt->execute();
 
+        return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+    public static function findAll(): array
+    {
+        $pdo = Database::getPDO();
+        $sql = 'SELECT * FROM product';
+        $stmt = $pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 }

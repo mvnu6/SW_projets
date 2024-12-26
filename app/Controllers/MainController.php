@@ -10,14 +10,6 @@ use App\Models\Type;
 class MainController extends CoreController
 {
 
-    public function test()
-    {
-        $brandModel = new Brand(); // peut modifier Brand avec les autres noms de modèle pour tester
-        $list = $brandModel->findAll();
-        $elem = $brandModel->find(7);
-        dump($list);
-        dump($elem);
-    }
     /**
      * Affiche la page d'accueil du site
      */
@@ -30,12 +22,16 @@ class MainController extends CoreController
         // Récupérer les types
         $typeModel = new Type();
         $types = $typeModel->findAll();
-
+      
+        $brands = Brand::findAll(); // Supposons que vous avez une classe Brand avec une méthode findAll()
         // Passer les données à la vue
         $this->show('home', [
             'categories' => $categories,
-            'types' => $types, // Passage des types à la vue
+            'types' => $types,
+            'brands' => $brands, // Passage des types à la vue
         ]);
+
+   
     }
 
     /**

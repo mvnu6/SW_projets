@@ -134,9 +134,9 @@ COMMIT;
 -- Data for table `product`
 -- -----------------------------------------------------
 START TRANSACTION;
-INSERT INTO `product` (`id`, `name`, `picture`, `color`,`price`, `rate`, `status`, `created_at`, `updated_at`, `brand_id`, `category_id`, `type_id`) VALUES (1, 'curry','assets/images/produits/curry-1.jpg','black', 40, 4, 1, '2018-10-17 11:00:00', NULL, 1, 1, 1);
+INSERT INTO `product` (`id`, `name`, `picture`, `color`,`price`, `rate`, `status`, `created_at`, `updated_at`, `brand_id`, `category_id`, `type_id`) VALUES (1, 'curry','assets/images/produits/curry-1.jpg','black', 40, 4, 1, '2018-10-17 11:00:00', NULL, 1, 2, 1);
 INSERT INTO `product` (`id`, `name`, `picture`, `color`,`price`, `rate`, `status`, `created_at`, `updated_at`, `brand_id`, `category_id`, `type_id`) VALUES (2, 'jordan',  'assets/images/produits/jordan-34.jpg', 'white',20, 2, 1, '2018-10-17 11:00:00', NULL, 4, 1, 3);
-INSERT INTO `product` (`id`, `name`, `picture`, `color`,`price`, `rate`, `status`, `created_at`, `updated_at`, `brand_id`, `category_id`, `type_id`) VALUES (3, 'puma',  'assets/images/produits/puma.jpg', 'blue',50, 5, 1, '2018-10-17 11:00:00', NULL, 7, 1, 2);
+INSERT INTO `product` (`id`, `name`, `picture`, `color`,`price`, `rate`, `status`, `created_at`, `updated_at`, `brand_id`, `category_id`, `type_id`) VALUES (3, 'puma',  'assets/images/produits/puma.jpg', 'blue',50, 5, 1, '2018-10-17 11:00:00', NULL, 7, 3, 2);
 
 
 COMMIT;

@@ -3,6 +3,7 @@
 <?php
   $baseRoute = $_SERVER['BASE_URI'];
 ?>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +33,7 @@
     <nav class="navbar navbar-expand-lg navbar-sticky navbar-airy navbar-light">
       <div class="container-fluid">
         <!-- Navbar Header  -->
-        <a href="index.html" class="navbar-brand">oball</a>
+        <a href="<?=$baseRoute?>" class="navbar-brand">oball</a>
         <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
           aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
         <!-- Navbar Collapse -->
